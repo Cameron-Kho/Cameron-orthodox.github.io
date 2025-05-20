@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Cameron's Interactive Website</title>
+      <link rel="stylesheet" href="style.css" />
+      <script src="script.js" defer></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js"></script> <!-- ✨ ADD THIS -->
+    </head>
+
+<body onload="brython()">
+  <div class="container">
+    <h1>Welcome to Cameron's Website!</h1>
+
+    <!-- About Me Section -->
+    <div class="about-me">
+      <h2>About Me</h2>
+      <p>Hi! I'm <span class="highlight">Cameron</span>. This is my first website. Here are some games to play.</p>
+      <p>I was born in the US, but I spent the first 10 years of my life living in different countries. That's why I love traveling and visiting different places. In my free time, I love reading, playing the piano, and board games.</p>
+    </div>
+
+    <!-- Game Buttons -->
+    <div class="button-section" style="margin-top: 30px; text-align: center;">
+      <button onclick="showSection('nfl-game')" style="display: inline-block; margin: 10px;">Play NFL Game Simulator</button>
+      <button onclick="showSection('makecode-game')" style="display: inline-block; margin: 10px;">Play MakeCode Game</button>
+      <button onclick="showSection('surprise-game')" style="display: inline-block; margin: 10px;">Surprise!</button>
+    </div>
+
+    <!-- NFL Game Simulator Section -->
+    <div id="nfl-game" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>NFL Game Simulator</h2>
+      <div id="inputs">
+        <label for="first-team">Select First Team:</label><br/>
+        <select id="first-team"></select><br/><br/>
+
+        <label for="second-team">Select Second Team:</label><br/>
+        <select id="second-team"></select><br/><br/>
+
+        <label for="home-team">Who is the Home Team?</label><br/>
+        <select id="home-team">
+          <option value="0">None</option>
+          <option value="1">First Team</option>
+          <option value="2">Second Team</option>
+        </select><br/><br/>
+
+        <label for="num-games">Number of Games:</label><br/>
+        <input id="num-games" type="number" min="1" max="100" value="10"/><br/><br/>
+
+        <button id="start-sim">Start Simulation</button>
+      </div>
+      <div id="results" style="margin-top: 30px;"></div>
+    </div>
+  
+    <!-- MakeCode Game Section -->
+    <div id="makecode-game" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>MakeCode Game</h2>
+      <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
+        <iframe src="https://arcade.makecode.com/S33473-67304-63259-19071" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Surprise Section -->
+    <div id="surprise-game" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>Fortune Teller</h2>
+      <div id="fortune-area">
+        <button id="surprise-btn">Tell My Fortune!</button>
+        <div id="fortune-result"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer" style="margin-top: 50px;">
+      © 2025 Cameron Kho
+    </div>
+  </div>
+
+  <!-- Brython Script -->
+  <script type="text/python">
+from browser import document, html, window
+import random
+
+teams = {
+    1: ['Arizona Cardinals', 8, 9],
+    2: ['Atlanta Falcons', 8, 9],
+    3: ['Baltimore Ravens', 12, 5],
+    4: ['Buffalo Bills', 13, 4],
+    5: ['Carolina Panthers', 5, 12],
+    6: ['Chicago Bears', 5, 12],
+    7: ['Cincinnati Bengals', 9, 8],
+    8: ['Cleveland Browns', 3, 14],
+    9: ['Dallas Cowboys', 7, 10],
+    10: ['Denver Broncos', 10, 7],
+    11: ['Detroit Lions', 15, 2],
+    12: ['Green Bay Packers', 11, 6],
+    13: ['Houston Texans', 10, 7],
+    14: ['Indianapolis Colts', 8, 9],
+    15: ['Jacksonville Jaguars', 4, 13],
+    16: ['Kansas City Chiefs', 15, 2],
+    17: ['Las Vegas Raiders', 4, 13],
+    18: ['Los Angeles Chargers', 11, 6],
+    19: ['Los Angeles Rams', 10, 7],
+    20: ['Miami Dolphins', 8, 9],
+    21: ['Minnesota Vikings', 14, 3],
+    22: ['New England Patriots', 4, 13],
+    23: ['New Orleans Saints', 5, 12],
+    24: ['New York Giants', 3, 14],
+    25: ['New York Jets', 5, 12],
+    26: ['Philadelphia Eagles', 14, 3],
+    27: ['Pittsburgh Steelers', 10, 7],
+    28: ['San Francisco 49ers', 6, 11],
+    29: ['Seattle Seahawks', 10, 7],
+    30: ['Tampa Bay Buccaneers', 10, 7],
+    31: ['Tennessee Titans', 3, 14],
+    32: ['Washington Commanders', 12, 5]
+}
+
+def run_game(first, second, home):
+    one = teams[first][1]
+    two = teams[second][1]
+
+    if home == 1:
+        one += 1
+    if home == 2:
+        two += 1
+
+    first_prob = one / (one + two)
+    prob = random.gauss(0.5, 0.3)
+
+    if prob <= first_prob:
+        return first
+    else:
+        return second
+
+def fill_dropdowns():
+    document["first-team"].clear()
+    document["second-team"].clear()
+    for i in range(1, 33):
+        team_name = teams[i][0]
+        option1 = html.OPTION(team_name, value=str(i))
+        option2 = html.OPTION(team_name, value=str(i))
+        document["first-team"] <= option1
+        document["second-team"] <= option2
+
+# ✨ Expose the function to JavaScript!
+window.fillDropdowns = fill_dropdowns
+
+def start_sim(event):
+    try:
+        first = int(document["first-team"].value)
+        second = int(document["second-team"].value)
+        home = int(document["home-team"].value)
+        games = int(document["num-games"].value)
+
+        first_wins = 0
+        second_wins = 0
+
+        for _ in range(games):
+            winner = run_game(first, second, home)
+            if winner == first:
+                first_wins += 1
+            else:
+                second_wins += 1
+
+        result_text = f"{teams[first][0]} won {first_wins} times.<br>{teams[second][0]} won {second_wins} times."
+        document["results"].innerHTML = result_text
+    except Exception as e:
+        document["results"].text = "Error! Please check your inputs."
+
+document["start-sim"].bind("click", start_sim)
+  </script>
+
+</body>
+</html>
