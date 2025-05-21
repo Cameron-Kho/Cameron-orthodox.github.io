@@ -12,69 +12,54 @@
 
 <body onload="brython()">
   <div class="container">
-    <h1>Welcome to Cameron's Website!</h1>
+    <h1>Cameron Orthodox Church</h1>
 
     <!-- About Me Section -->
     <div class="about-me">
-      <h2>About Me</h2>
-      <p>Hi! I'm <span class="highlight">Cameron</span>. This is my first website. Here are some games to play.</p>
-      <p>I was born in the US, but I spent the first 10 years of my life living in different countries. That's why I love traveling and visiting different places. In my free time, I love reading, playing the piano, and board games.</p>
+      <h2>About us</h2>
+      <p>Good day! We are the Cameron Orthodox Church, founded to hail the<span class="highlight">Divine One</span>. Here you can find all our info.</p>
+      <p>We were first founed in Novermber 2024 with both Pope Cameron and Cardinal Morales. Over the time, we gained many more members, aquired temples, and now have almost 40 members</p>
     </div>
 
     <!-- Game Buttons -->
     <div class="button-section" style="margin-top: 30px; text-align: center;">
-      <button onclick="showSection('nfl-game')" style="display: inline-block; margin: 10px;">Play NFL Game Simulator</button>
-      <button onclick="showSection('makecode-game')" style="display: inline-block; margin: 10px;">Play MakeCode Game</button>
-      <button onclick="showSection('surprise-game')" style="display: inline-block; margin: 10px;">Surprise!</button>
+      <button onclick="showSection('Book of God')" style="display: inline-block; margin: 10px;">Book of God</button>
+      <button onclick="showSection('Theme Song')" style="display: inline-block; margin: 10px;">Theme Song</button>
+      <button onclick="showSection('God messages')" style="display: inline-block; margin: 10px;">God message!</button>
+      <button onclick="showSection('Our info')" style="display: inline-block; margin: 10px;">Temples!</button>
     </div>
 
-    <!-- NFL Game Simulator Section -->
-    <div id="nfl-game" class="game-section" style="display: none; margin-top: 30px;">
-      <h2>NFL Game Simulator</h2>
-      <div id="inputs">
-        <label for="first-team">Select First Team:</label><br/>
-        <select id="first-team"></select><br/><br/>
-
-        <label for="second-team">Select Second Team:</label><br/>
-        <select id="second-team"></select><br/><br/>
-
-        <label for="home-team">Who is the Home Team?</label><br/>
-        <select id="home-team">
-          <option value="0">None</option>
-          <option value="1">First Team</option>
-          <option value="2">Second Team</option>
-        </select><br/><br/>
-
-        <label for="num-games">Number of Games:</label><br/>
-        <input id="num-games" type="number" min="1" max="100" value="10"/><br/><br/>
-
-        <button id="start-sim">Start Simulation</button>
+    <!-- Book of God -->
+    <div id="Book of God" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>Book of God</h2>
+      <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
+        <iframe src="https://docs.google.com/document/d/1GQpOxLabV90QQqB-IZolvup7ZsgpKL0UE2eHCK_J47Y/edit?usp=drivesdk" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen></iframe>
       </div>
-      <div id="results" style="margin-top: 30px;"></div>
     </div>
   
-    <!-- MakeCode Game Section -->
-    <div id="makecode-game" class="game-section" style="display: none; margin-top: 30px;">
-      <h2>MakeCode Game</h2>
+    <!-- Theme song -->
+    <div id="Theme song" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>Our theme song!</h2>
       <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
-        <iframe src="https://arcade.makecode.com/S33473-67304-63259-19071" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen></iframe>
+        <iframe src="https://suno.com/song/cdffbefd-6935-4ab0-a59e-4d3a92df2a27" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen></iframe>
       </div>
     </div>
 
     <!-- Surprise Section -->
-    <div id="surprise-game" class="game-section" style="display: none; margin-top: 30px;">
-      <h2>Fortune Teller</h2>
+    <div id="God message" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>God's messages</h2>
       <div id="fortune-area">
-        <button id="surprise-btn">Tell My Fortune!</button>
+        <button id="surprise-btn">Tell My Fortune from God!</button>
         <div id="fortune-result"></div>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="footer" style="margin-top: 50px;">
-      © 2025 Cameron Kho
+      © 2025 Cameron Orthodox Church
     </div>
   </div>
 
+  
 </body>
 </html>
