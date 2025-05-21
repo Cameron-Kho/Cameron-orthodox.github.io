@@ -1,4 +1,3 @@
-
 function showSection(sectionId) {
   // Hide all sections
   const sections = document.querySelectorAll('.game-section');
