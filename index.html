@@ -1,3 +1,75 @@
 <!DOCTYPE html>
-<html lang="eng">
-    <head> Hello </head>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Cameron's Interactive Website</title>
+      <link rel="stylesheet" href="style.css" />
+      <script src="script.js" defer></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js"></script> <!-- ✨ ADD THIS -->
+    </head>
+
+<body onload="brython()">
+  <div class="container">
+    <h1>Cameron Orthodox Church</h1>
+
+    <!-- About Me Section -->
+    <div class="about-me">
+      <h2>About us</h2>
+      <p>Be blessed! We are the Cameron Orthodox Church, founded to hail the<span class="highlight">Divine One</span>. Here you can find all our info.</p>
+      <p>We were first founed in Novermber 2024 with both Pope Cameron and Cardinal Morales. Over the time, we gained many more members, aquired temples, and now have almost 40 members</p>
+    </div>
+
+    <!-- Game Buttons -->
+    <div class="button-section" style="margin-top: 30px; text-align: center;">
+      <button onclick="showSection('Book of God')" style="display: inline-block; margin: 10px;">Book of God</button>
+      <button onclick="showSection('Theme Song')" style="display: inline-block; margin: 10px;">Theme Song</button>
+      <button onclick="showSection('God messages')" style="display: inline-block; margin: 10px;">God message!</button>
+      <button onclick="showSection('Our info')" style="display: inline-block; margin: 10px;">Our info!</button>
+    </div>
+
+    <!-- Book of God -->
+    <div id="Book of God" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>Book of God</h2>
+      <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
+        <iframe src="https://docs.google.com/document/d/1GQpOxLabV90QQqB-IZolvup7ZsgpKL0UE2eHCK_J47Y/edit?usp=drivesdk" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen></iframe>
+      </div>
+    </div>
+  
+    <!-- Theme song -->
+    <div id="Theme song" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>Our theme song!</h2>
+      <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0;">
+        <iframe src="https://suno.com/song/cdffbefd-6935-4ab0-a59e-4d3a92df2a27" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Surprise Section -->
+    <div id="God message" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>God's messages</h2>
+      <div id="fortune-area">
+        <button id="surprise-btn">God's messages!</button>
+        <div id="fortune-result"></div>
+      </div>
+    </div>
+
+    <!-- Our info -->
+    <div id="Our info" class="game-section" style="display: none; margin-top: 30px;">
+      <h2>Our info</h2>
+      <div id="fortune-area">
+        <button id="our info-btn">Our info!</button>
+        <div id="our info"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer" style="margin-top: 50px;">
+      © 2025 Cameron Orthodox Church
+    </div>
+  </div>
+
+  
+</body>
+</html>
+
